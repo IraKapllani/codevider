@@ -1,0 +1,437 @@
+body {
+    background-image: linear-gradient(to right top, #005d59, #005d59, #005d59, #005d59, #005d59);
+}
+
+.animal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/*Loader*/
+.loader {
+    height: 50px;
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.dot-two {
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    padding: 4px;
+    color: white;
+}
+
+.dot-one,
+.dot-three {
+    background-color: black;
+    height: 30px;
+    width: 20px;
+    border-radius: 50%;
+    text-align: center;
+    animation: flap-wings 1s infinite ease-in-out;
+}
+
+.dot-two {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: black;
+    animation: flap-wings 1s infinite ease-in-out;
+    animation-delay: 0.1s;
+}
+
+.dot-two::before,
+.dot-two::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+}
+
+.dot-two::before {
+    height: 20px;
+    width: 10px;
+    bottom: 20px;
+    left: 1px;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-20deg);
+}
+
+.dot-two::after {
+    height: 20px;
+    width: 10px;
+    bottom: 20px;
+    left: 19px;
+    transform: rotate(20deg);
+    border-radius: 50% 50% 0 0;
+}
+
+.dot-one::before,
+.dot-one::after,
+.dot-three::before,
+.dot-three::after {
+    content: "";
+    position: absolute;
+    background-color: white;
+}
+
+.dot-one::before,
+.dot-three::before {
+    height: 30px;
+    width: 20px;
+    top: 10px;
+    left: 0;
+    background-color: #e8e8e8;
+    /*chnage this if u need dark mode to #212121 if need light mode #e8e8e8*/
+    border-radius: 50% 50% 0 0;
+}
+
+@keyframes flap-wings {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+{/*Featured Animals*/}
+.fa-card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px #ffffff80;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fa-card img {
+    width: 100%;
+    fill: #333;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fa-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.fa-card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fa-card:hover .fa-card-content {
+    transform: rotateX(0deg);
+}
+
+.fa-card-title {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.fa-card:hover svg {
+    scale: 0;
+}
+
+.fa-card-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+}
+
+@media (min-width: 992px) {
+    #fa-card-padding {
+        padding-left: 90px;
+    }
+}
+
+{/*Contact Us*/}
+.contact-form {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+}
+
+.contact-form .contact-title {
+    color: #db6b09;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form input {
+    outline: 0;
+    border: 1px solid rgb(219, 213, 213);
+    padding: 8px 14px;
+    border-radius: 8px;
+    width: 100%;
+    height: 50px;
+}
+
+.contact-form textarea {
+    border-radius: 8px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+    outline: 0;
+    padding: 8px 14px;
+    border: 1px solid rgb(219, 213, 213);
+}
+
+.contact-form button {
+    --color: #db6b09;
+    --color2: #ffffff;
+    padding: 5px 15px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 500;
+    font-size: 17px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+}
+
+.contact-form button::after, .contact-form button::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color);
+}
+
+.contact-form button::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.contact-form button:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.contact-form button:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+}
+
+.contact-form button:hover {
+    color: var(--color2);
+}
+
+.contact-form button:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+}
+
+{/*Category Cards*/}
+.category-card {
+    width: 300px;
+    position: relative;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+}
+
+.category-card::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 10px;
+    bottom: 15px;
+    right: 0;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+    transform: rotate(5deg);
+    transition: all 0.1s ease-in;
+}
+
+.category-card::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 10px;
+    bottom: 15px;
+    left: 0;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+    transform: rotate(-5deg);
+    transition: all 0.1s ease-in;
+}
+
+.category-card:hover:before, .category-card:hover:after {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+.category-card:hover:before {
+    transform: rotate(-8deg);
+}
+
+.category-card:hover:after {
+    transform: rotate(8deg);
+}
+
+.category-card__img {
+    position: relative;
+    background: #a62a00;
+    background: linear-gradient(315deg, #ff7d7d, #a62a00);
+    width: 100%;
+    height: 175px;
+}
+
+.category-card__span {
+    cursor: pointer;
+    font-size: 11px;
+    position: absolute;
+    background-color: white;
+    top: 10px;
+    left: 10px;
+    padding: 3px 7px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease-in;
+    user-select: none;
+}
+
+.category-card__span:hover {
+    transform: translateX(5px);
+}
+
+.category-card-int {
+    padding: 20px 0 0 0;
+}
+
+.category-card-int__title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+}
+
+.category-card-int__button {
+    cursor: pointer;
+    margin: 20px 0 0 0;
+    padding: 7px 20px;
+    width: 100%;
+    background-color: rgb(255, 239, 238);
+    border: none;
+    color: black;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+    transition: box-shadow 0.1s ease-in;
+    user-select: none;
+}
+
+.category-card-int__button:active {
+    box-shadow: 0px 0px 15px rgba(0, 119, 255, 0.5);
+}
+
+.category-card-int__button:hover::before {
+    animation: effect_two 0.4s 1;
+}
+
+.category-card-int__button::before {
+    content: 'More for this article';
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: #a62a00;
+    background: linear-gradient(315deg, #ff7d7d, #a62a00);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(-99%);
+    z-index: 1;
+    animation: effect_one 10s infinite;
+}
+
+.category-card-int__button:hover::before {
+    transform: translateX(0%);
+}
+
+.excerpt {
+    font-size: 14px;
+}
+
+@keyframes effect_one {
+    0% {
+        transform: translateX(-99%);
+    }
+
+    25% {
+        transform: translateX(-90%);
+    }
+
+    50% {
+        transform: translateX(-80%);
+    }
+
+    75% {
+        transform: translateX(-95%);
+    }
+
+    100% {
+        transform: translateX(-99%);
+    }
+}
+
+@keyframes effect_two {
+    to {
+        transform: translateX(-1%);
+    }
+
+    from {
+        transform: translateX(-99%);
+    }
+}
