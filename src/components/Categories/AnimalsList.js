@@ -1,9 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from 'react';
 import "../../assets/styles.css";
 
-const AnimalsList = (animals) => {
+const AnimalsList = ({ animals }) => {
+	console.log('here');
+
 	useEffect(() => {
-		console.log('Animals in AnimalsList:', animals); // Log the animals prop
+		console.log('Animals in AnimalsList:', animals);
 	}, [animals]);
 
 	if (!Array.isArray(animals)) {
@@ -23,7 +25,7 @@ const AnimalsList = (animals) => {
 				))}
 			</div>
 		</>
-	)
+	);
 }
 
 export default AnimalsList;

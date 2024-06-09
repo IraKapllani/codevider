@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {fetchCats} from "../../utils/plugins/api";
+import React, { useState, useEffect } from 'react';
+import { fetchCats } from "../../utils/plugins/api";
 import AnimalsList from "./AnimalsList";
 
 const Cats = () => {
@@ -12,7 +12,7 @@ const Cats = () => {
 			setCats(catsData);
 			setLoading(false);
 		};
-		fetchData()
+		fetchData();
 	}, []);
 
 	if (loading) {
@@ -22,7 +22,7 @@ const Cats = () => {
 	return (
 		<div>
 			<h2>Cats</h2>
-			<AnimalsList animals={cats}/>
+			<AnimalsList animals={cats} />
 		</div>
 	);
 };

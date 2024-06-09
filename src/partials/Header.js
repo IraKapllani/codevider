@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	return <nav className="navbar navbar-expand-lg bg-body-secondary">
@@ -20,9 +21,9 @@ const Header = () => {
 									Categories
 								</a>
 								<ul className="dropdown-menu">
-									<li><a className="dropdown-item" href="#">Birds</a></li>
-									<li><a className="dropdown-item" href="#">Cats</a></li>
-									<li><a className="dropdown-item" href="#">Dogs</a></li>
+									<li><Link className="dropdown-item" to="/birds">Birds</Link></li>
+									<li><Link className="dropdown-item" to="/cats">Cats</Link></li>
+									<li><Link className="dropdown-item" to="/dogs">Dogs</Link></li>
 								</ul>
 							</li>
 						</ul>

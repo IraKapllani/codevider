@@ -9,7 +9,7 @@ const Dogs = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const dogsData = await fetchDogs();
-			setDogs(dogsData)
+			setDogs(dogsData);
 			setLoading(false);
 		};
 		fetchData()
